@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Music Recommendations</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/skeleton-alerts.css">
+  <style> 
+    #predict-div {
+      display: none;
+    }
+    #song-limit-alert-div {
+      display: none;
+    }
+    #recs-container {
+      display: none;
+    }
+  </style>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- JS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/search.js"></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div id="search-container" class="container">
+    <div class="row">
+      <div class="full column" style="margin-top: 10%">
+        <h4>Welcome to the Music Recommender</h4>
+        <p>Please choose some of your favorite songs from the form below, and let the algorithm return some recommendations. Just start typing and songs will appear for selection.</p>
+        <p><a href='https://github.com/jskrable/music-rec' target="_blank">The source code is here if interested. </a> </p>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div id="chosen-songs-div">
+          <!-- selected songs go here -->
+      </div>
+    </div>
+    
+    <div class="row">
+      <div id="song-limit-alert-div">
+        <p></p>
+        <p class="alert alert-error">Sorry, you can only choose three songs.</p>
+      </div>
+    </div>
+
+    <p></p>
+    <div class="row">
+      <div id="predict-div" class="twelve columns">
+          <!-- selected songs go here -->
+          <div class="four columns offset-by-two">
+            <button id="get-recs-button" class="button-primary" onclick="getRecs()">Get Recommendations</button>
+          </div>
+          <div class="four columns offset-by-one">
+            <button id="clear-selected-button" class="button" onclick="clearSelected()">Clear Selected Songs</button>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <input class="u-full-width" type="search" placeholder="Search for songs..." id="search-bar">
+      </div>  
+<!--       <div class="three columns">
+        <input class="button-primary" type="submit" value="Search" id="search-btn">
+      </div> -->
+    </div>
+
+    <div class="row">
+      <ul id="search-results">
+        <!-- Search results go here -->
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container" id="recs-container">
+    <div class="row">
+      <div class="full column" style="margin-top: 10%">
+        <h4>You might like:</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div id="recs-div">
+          <!-- recomme songs go here -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns offset-by-one">
+        <button id="back-button" class="button" onclick="restart()">Try Again</button>
+      </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
