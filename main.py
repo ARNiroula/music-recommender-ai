@@ -33,26 +33,7 @@ sns.set_style('darkgrid')
 
 track_metadata_df = pd.read_csv('./song_data.csv')
 count_play_df = pd.read_csv('./10000.txt', sep='\t', header=None, names=['user','song','play_count'])
+user_song_list_count=pd.read_csv('./data/preprocessed.csv')
 
 
-############# 1 #################
-
-print('First see of track metadata:')
-print('Number of rows:', track_metadata_df.shape[0])
-print('Number of unique songs:', len(track_metadata_df.song_id.unique()))
-display(track_metadata_df.head())
-print('Note the problem with repeated track metadata. Let\'s see of counts play song by users:')
-display(count_play_df.shape, count_play_df.head())
-
-############# 1 #################
-
-############# 2 #################
-
-unique_track_metadata_df = track_metadata_df.groupby('song_id').max().reset_index()
-
-print('Number of rows after unique song Id treatment:', unique_track_metadata_df.shape[0])
-print('Number of unique songs:', len(unique_track_metadata_df.song_id.unique()))
-display(unique_track_metadata_df.head())
-
-############# 2 #################
 
